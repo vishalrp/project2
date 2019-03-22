@@ -29,7 +29,7 @@ Base.prepare(db.engine, reflect=True)
 #print(Base.classes.keys())
 # Save references to each table
 city_rent_price=Base.classes.city_rent_price
-stmt = db.session.query(city_rent_price).statement
+stmt = db.session.query(city_rent_price).limit(10000).statement
 df= pd.read_sql_query(stmt, db.session.bind)
 print("=======================")
 
